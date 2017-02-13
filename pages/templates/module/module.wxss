@@ -1,0 +1,29 @@
+@import "../item/item.wxss";
+
+.module-group {
+}
+
+.module-group .module-title-group {
+  overflow: hidden;
+}
+
+.module-title-group .module-title {
+  float: left;
+  color: #494949;
+}
+
+.module-title-group .more-btn {
+  float: right;
+  color: #41be57;
+}
+
+.module-scroll-view {
+  width: 100%;
+  overflow: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}

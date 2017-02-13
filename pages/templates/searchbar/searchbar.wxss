@@ -1,0 +1,16 @@
+.searchbar-group {
+  background: #41be57;
+  padding: 15px 10px;
+}
+
+.searchbar-group .searchbar-input {
+  display: block;
+  width: 100%;
+  height: 30%;
+  background: #fff;
+  border-radius: 5px;
+  background-image: url(../images/search.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 18px;
+}

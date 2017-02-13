@@ -1,0 +1,8 @@
+<import src="../templates/module/module" />
+<import src="../templates/searchbar/searchbar" />
+<template is="searchbar"></template>
+<view class="container">
+  <template is="module" data="{{title:'电影',items: movies, category:1}}"></template>
+  <template is="module" data="{{title:'电视剧',items: tvs, category:2}}"></template>
+  <template is="module" data="{{title:'综艺',items: shows, category:3}}"></template>
+</view>

@@ -1,0 +1,7 @@
+@import "../templates/module/module.wxss";
+@import "../templates/searchbar/searchbar.wxss";
+
+.container {
+  padding: 18px;
+  box-sizing: border-box;
+}

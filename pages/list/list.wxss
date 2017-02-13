@@ -1,0 +1,30 @@
+/* pages/list/list.wxss */
+@import "../templates/module/module.wxss";
+@import "../templates/searchbar/searchbar.wxss";
+
+.container {
+  padding: 0px 10px;
+  box-sizing: border-box;
+  background: #fff;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.outer-scroll-view {
+  width: 100%;
+  height: 100%;
+}
+
+.item-group {
+  margin-bottom: 0px;
+  margin-top: 20px;
+}
+
+.item-holder {
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+  background: red;
+}

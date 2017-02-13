@@ -1,0 +1,20 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/list/list"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#41BE57",
+    "navigationBarTitleText": "豆瓣评分",
+    "navigationBarTextStyle":"white"
+  },
+  "debug":true,
+  "networkTimeout": {
+    "request": 100000,
+    "connectSocket": 50000,
+    "uploadFile": 50000,
+    "downloadFile": 50000
+  }
+}

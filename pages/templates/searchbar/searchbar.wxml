@@ -1,0 +1,5 @@
+<template name="searchbar">
+  <view class="searchbar-group">
+    <input class="searchbar-input" />
+  </view>
+</template>

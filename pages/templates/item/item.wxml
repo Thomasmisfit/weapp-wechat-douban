@@ -1,0 +1,12 @@
+<template name="item">
+  <view class="item-group">
+    <image src="{{item.cover.url}}" class="thumbnail"></image>
+    <view class="item-title">{{item.title}}</view>
+    <view class="item-rating-group">
+      <image src="../images/rate_light.png" wx:for="{{item.rating.lights}}"></image>
+      <image src="../images/rate_half.png" wx:for="{{item.rating.halfs}}"></image>
+      <image src="../images/rate_gray.png" wx:for="{{item.rating.grays}}"></image>
+      {{item.rating.value}}
+    </view>
+  </view>
+</template>
