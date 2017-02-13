@@ -1,6 +1,7 @@
 @import "../item/item.wxss";
 
 .module-group {
+  margin-top: 18px;
 }
 
 .module-group .module-title-group {
@@ -20,6 +21,7 @@
 .module-scroll-view {
   width: 100%;
   overflow: hidden;
+  white-space: nowrap;
 }
 
 ::-webkit-scrollbar {
