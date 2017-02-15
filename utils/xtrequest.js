@@ -10,6 +10,33 @@ var xtrequest = {
     },
     showListUrl: function (start = 0) {
       return 'https://m.douban.com/rexxar/api/v2/subject_collection/tv_variety_show/items?start=' + start
+    },
+    movieDetailUrl: function (id) {
+      return 'https://m.douban.com/rexxar/api/v2/movie/' + id
+    },
+    tvDetailUrl: function (id) {
+      return 'https://m.douban.com/rexxar/api/v2/tv/' + id
+    },
+    showDetailUrl: function (id) {
+      return this.tvDetailUrl(id)
+    },
+    movieTagUrl: function (id = 1) {
+      return 'https://m.douban.com/rexxar/api/v2/movie/' + id + '/tags?count=8'
+    },
+    tvTagsUrl: function (id) {
+      return 'https://m.douban.com/rexxar/api/v2/tv/' + id + '/tags?count=8'
+    },
+    showTagsUrl: function (id) {
+      return this.tvTagsUrl(id)
+    },
+    movieCommentUrl: function (id, start = 0, count = 3) {
+      return 'https://m.douban.com/rexxar/api/v2/movie/' + id + '/interests?count=' + count + '&start=' + start
+    },
+    tvCommentUrl: function (id, start = 0, count = 3) {
+      return 'https://m.douban.com/rexxar/api/v2/tv/' + id + '/interests?count=' + count + '&start=' + start
+    },
+    showCommentUrl: function (id, start = 0, count = 3) {
+      return this.tvCommentUrl(id, start, count)
     }
   },
   getItemList: function (params) {
@@ -39,7 +66,7 @@ var xtrequest = {
         var length = count <= data.length ? count : data.length
         for (var i = 0; i < data.length; i++) {
           var item = data[i]
-          console.log('item:', item)
+          // console.log('item:', item)
           if (!item['rating']) {
             item['rating'] = {
               value: 0
@@ -75,11 +102,106 @@ var xtrequest = {
           item['rating']['lights'] = lights
           item['rating']['halfs'] = halfs
           item['rating']['grays'] = grays
+          item['category'] = category
 
           items.push(item)
         }
         if (success) {
           success(res, items)
+        }
+      }
+    })
+  },
+  getItemDetail: function (params) {
+    var that = this
+    var id = params['id']
+    var category = params['category']
+    var success = params['success']
+
+    var url = ''
+    if (category == 1) {
+      url = that.url.movieDetailUrl(id)
+    } else if (category == 2) {
+      url = that.url.tvDetailUrl(id)
+    } else {
+      url = that.url.showDetailUrl(id)
+    }
+
+    wx.request({
+      url: url,
+      method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+      // header: {}, // 设置请求的 header
+      success: function (res) {
+        // success
+        console.log('res:', res)
+        var data = res.data
+        data['genres'] = res.data.genres.join(' / ')
+        var authors = []
+        var dLength = res.data.directors.length > 3 ? 3 : res.data.directors.length
+        var aLength = res.data.actors.length > 3 ? 3 : res.data.actors.length
+        for (var i = 0; i < dLength; i++) {
+          authors.push(res.data.directors[i].name + '(导演)')
+        }
+        for (var i = 0; i < aLength; i++) {
+          authors.push(res.data.actors[i].name)
+        }
+        data['authors'] = authors.join(' / ')
+        var item = data
+        if (success) {
+          success(res, item)
+        }
+      }
+    })
+
+  },
+  getItemTag: function (params) {
+    var that = this
+    var id = params['id']
+    var category = params['category']
+    var success = params['success']
+    var url = ''
+    if (category == 1) {
+      url = that.url.movieTagUrl(id)
+    } else if (category == 2) {
+      url = that.url.tvTagsUrl(id)
+    } else {
+      url = that.url.showTagsUrl(id)
+    }
+    wx.request({
+      url: url,
+      method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+      // header: {}, // 设置请求的 header
+      success: function (res) {
+        // success
+        var tags = res.data.tags
+        if (success) {
+          success(res, tags)
+        }
+      }
+    })
+  },
+  getCommentList: function (params) {
+    var that = this
+    var id = params['id']
+    var category = params['category']
+    var success = params['success']
+    var url = ''
+    if (category == 1) {
+      url = that.url.movieCommentUrl(id)
+    } else if (category == 2) {
+      url = that.url.tvCommentUrl(id)
+    } else {
+      url = that.url.showCommentUrl(id)
+    }
+    wx.request({
+      url: url,
+      method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+      // header: {}, // 设置请求的 header
+      success: function (res) {
+        // success
+        var comments = res.data.interests
+        if (success) {
+          success(res, comments)
         }
       }
     })

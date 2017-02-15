@@ -5,7 +5,8 @@ Page({
   data: {
     items: [],
     start: 0,
-    category: 1
+    category: 1,
+    has_more: true
   },
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
@@ -29,7 +30,6 @@ Page({
   },
   scrollToLower: function () {
     var that = this
-    console.log("we get here!!")
     that.loadData()
   },
   loadData: function () {
@@ -38,6 +38,11 @@ Page({
       category: that.data.category,
       start: that.data.start,
       success: function (res, items) {
+        if (items.length == 0 || items == null){
+          that.setData({
+            has_more: false
+          })
+        }
         var totalItems = that.data.items.concat(items)
         that.setData({
           items: totalItems,

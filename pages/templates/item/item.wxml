@@ -1,6 +1,8 @@
 <template name="item">
   <view class="item-group">
-    <image src="{{item.cover.url}}" class="thumbnail"></image>
+    <navigator url="../detail/detail?id={{item.id}}&category={{item.category}}&title={{item.title}}">
+      <image src="{{item.cover.url}}" class="thumbnail"></image>
+    </navigator>
     <view class="item-title">{{item.title}}</view>
     <view class="item-rating-group">
       <image src="../images/rate_light.png" wx:for="{{item.rating.lights}}"></image>

@@ -6,7 +6,7 @@
       <navigator class="more-btn" url="../list/list?category={{category}}">更多</navigator>
     </view>
     <scroll-view scroll-x="{{true}}" class="module-scroll-view">
-      <block wx:for="{{items}}">
+      <block wx:for="{{items}}" wx:for-item="item">
         <template is="item" data="{{item:item}}"></template>
       </block>
     </scroll-view>

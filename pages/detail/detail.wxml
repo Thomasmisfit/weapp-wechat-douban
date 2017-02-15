@@ -1,0 +1,51 @@
+<view class="container">
+  <view class="item-title">{{item.title}}</view>
+  <view class="item-detail-group">
+    <view class="item-detail-left">
+      <view class="rating-comment-group">
+        <text class="rating-group">{{item.rating.value}}</text>
+        <text class="comment-group">{{item.comment_count}}人评论</text>
+      </view>
+      <view class="durations-genres-group">
+        <text class="durations-group">{{item.durations}}</text>
+        <text class="genres-group">{{item.genres}}</text>
+      </view>
+      <view class="pubdate-countries-group">
+        <text class="pubdate-group">{{item.pubdate}}上映</text>
+        <text class="countries-group">{{item.countries}}</text>
+      </view>
+      <view class="author-group">
+        {{item.authors}}
+      </view>
+    </view>
+    <view class="item-detail-right">
+      <image class="image-group" src="{{item.cover.image.small.url}}"></image>
+    </view>
+  </view>
+  <view class="tags-group">
+    <view class="module-title">豆瓣成员常用标签</view>
+    <view class="tags-ul">
+      <block wx:for="{{tags}}" wx:for-item="tag">
+        <text class="tag-li">{{tag}}</text>
+      </block>
+    </view>
+  </view>
+  <view class="comment-list-group">
+    <view class="module-title">短评({{comment.total}})</view>
+    <block wx:for="{{comment.comments}}" wx:for-item="comment">
+      <view class="comment-group">
+        <view class="user-avatar-group">
+          <image src="{{comment.user.avatar}}"></image>
+        </view>
+        <view class="comment-info-group">
+          <view class="user-name">
+            <text>{{comment.user.name}}</text>
+            <text>{{comment.rating.value}}</text>
+          </view>
+          <view class="comment-time">{{comment.create_time}}</view>
+          <view class="comment-content">{{comment.comment}}</view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

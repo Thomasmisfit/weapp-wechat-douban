@@ -3,9 +3,10 @@
 <template is="searchbar"></template>
 <scroll-view scroll-y class="outer-scroll-view" bindscrolltolower="scrollToLower" lower-threshold="50">
   <view class="container">
-    <block wx:for="{{items}}">
+    <block wx:for="{{items}}" wx:for-item="item">
       <template is="item" data="{{item:item}}"></template>
     </block>
     <template is="item" class="item-holder" wx:if="{{items.length%3 == 2}}"></template>
   </view>
+  <!--<button class="load-more" loading wx:if="{{has_more}}">loading</button>>-->
 </scroll-view>
