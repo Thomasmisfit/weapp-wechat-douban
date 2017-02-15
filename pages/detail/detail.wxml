@@ -48,5 +48,5 @@
       </view>
     </block>
   </view>
-  <navigator class="load-more-comment" url="../comments/comments">查看更多短评</navigator>
+  <navigator class="load-more-comment" url="../comments/comments?rating={{item.rating.value}}&title={{item.title}}&id={{item.id}}&category={{item.category}}&thumbnail={{item.cover.image.small.url}}">查看更多短评</navigator>
 </view>

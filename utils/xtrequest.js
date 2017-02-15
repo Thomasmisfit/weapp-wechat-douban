@@ -146,6 +146,7 @@ var xtrequest = {
           authors.push(res.data.actors[i].name)
         }
         data['authors'] = authors.join(' / ')
+        data['category'] = category
         var item = data
         if (success) {
           success(res, item)

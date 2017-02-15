@@ -1,1 +1,27 @@
 /* pages/comments/comments.wxss */
+
+.container{
+    padding: 10px 10px;
+}
+
+.item-info-group{
+    
+}
+
+.item-info-group .item-thumbnail{
+    width: 25px;
+    height: 17px;
+    vertical-align: bottom;
+}
+
+.item-info-group .item-title{
+    color: #41be57;
+    font-size: 16px;
+    margin-left: 8px;
+}
+
+.item-info-group .item-rating{
+    color: #aaa;
+    font-size: 14px;
+    margin-left: 8px;
+}

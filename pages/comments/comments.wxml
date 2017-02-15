@@ -1,2 +1,8 @@
 <!--pages/comments/comments.wxml-->
-<text>pages/comments/comments.wxml</text>
+<view class="container">
+  <view class="item-info-group" bindtap="backToDetail">
+    <image class="item-thumbnail" src="{{item.thumbnail}}"></image>
+    <text class="item-title">{{item.title}}</text>
+    <text class="item-rating">{{item.rating}}</text>
+  </view>
+</view>
