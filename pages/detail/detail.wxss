@@ -123,7 +123,7 @@
 }
 
 .comment-info-group .user-name{
-
+    margin-top: 5px;
 }
 
 .comment-info-group .comment-time{
@@ -133,4 +133,12 @@
 
 .comment-info-group .comment-content{
     margin-top: 5px;
+}
+
+.load-more-comment{
+    margin-top: 23px;
+    margin-bottom: 22px;
+    color: #41b157;
+    text-align: center;
+    font-size: 16px;
 }
