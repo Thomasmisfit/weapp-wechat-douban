@@ -17,8 +17,8 @@ Page({
       '2': '电视剧',
       '3': '综艺'
     }
-    console.log('options:', options)
-    console.log('title', title[category])
+    // console.log('options:', options)
+    // console.log('title', title[category])
     wx.setNavigationBarTitle({
       title: title[category],
     })

@@ -139,9 +139,9 @@ var xtrequest = {
       // header: {}, // 设置请求的 header
       success: function (res) {
         // success
-        console.log('res:', res)
+        // console.log('res:', res)
         var data = res.data
-        console.log("data in details:", data)
+        // console.log("data in details:", data)
         data['genres'] = res.data.genres.join(' / ')
         var authors = []
         var dLength = res.data.directors.length > 3 ? 3 : res.data.directors.length
@@ -254,7 +254,7 @@ var xtrequest = {
 
           items.push(item)
         }
-        console.log("comments in list:",comments)
+        // console.log("comments in list:",comments)
         if (success) {
           success(res, items)
         }
