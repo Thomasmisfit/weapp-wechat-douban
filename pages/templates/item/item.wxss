@@ -1,3 +1,5 @@
+@import "../ratingstar/ratingstar.wxss";
+
 .item-group {
   margin-top: 30px;
   display: inline-block;
@@ -30,9 +32,4 @@
   font-size: 14px;
   color: #afafaf;
   text-align: center;
-}
-
-.item-rating-group image {
-  width: 13px;
-  height: 13px;
 }

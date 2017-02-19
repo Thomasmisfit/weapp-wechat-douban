@@ -1,4 +1,5 @@
 @import "../templates/comment/comment.wxss";
+@import "../templates/ratingstar/ratingstar.wxss";
 
 .container{
     padding: 33px 20px;

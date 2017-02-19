@@ -1,4 +1,28 @@
+function ratingStarCalulate(value) {
+  var light = parseInt(parseInt(value) / 2)
+  var half = parseInt(value) % 2
+  var gray = 5 - light - half
 
+  var lights = []
+  var halfs = []
+  var grays = []
+  var ratingStar = {}
+
+  for (var j = 0; j < light; j++) {
+    lights.push(j)
+  }
+  for (var j = 0; j < half; j++) {
+    halfs.push(j)
+  }
+  for (var j = 0; j < gray; j++) {
+    grays.push(j)
+  }
+
+  ratingStar['lights'] = lights
+  ratingStar['halfs'] = halfs
+  ratingStar['grays'] = grays
+  return ratingStar
+}
 
 var xtrequest = {
   url: {
@@ -81,27 +105,9 @@ var xtrequest = {
 
 
           item['rating']['value'] = value
-          var light = parseInt(parseInt(value) / 2)
-          var half = parseInt(value) % 2
-          var gray = 5 - light - half
-
-          var lights = []
-          var halfs = []
-          var grays = []
-
-          for (var j = 0; j < light; j++) {
-            lights.push(j)
-          }
-          for (var j = 0; j < half; j++) {
-            halfs.push(j)
-          }
-          for (var j = 0; j < gray; j++) {
-            grays.push(j)
-          }
-
-          item['rating']['lights'] = lights
-          item['rating']['halfs'] = halfs
-          item['rating']['grays'] = grays
+          item['rating']['lights'] = ratingStarCalulate(value)['lights']
+          item['rating']['halfs'] = ratingStarCalulate(value)['halfs']
+          item['rating']['grays'] = ratingStarCalulate(value)['grays']
           item['category'] = category
 
           items.push(item)
@@ -135,6 +141,7 @@ var xtrequest = {
         // success
         console.log('res:', res)
         var data = res.data
+        console.log("data in details:", data)
         data['genres'] = res.data.genres.join(' / ')
         var authors = []
         var dLength = res.data.directors.length > 3 ? 3 : res.data.directors.length
@@ -148,6 +155,24 @@ var xtrequest = {
         data['authors'] = authors.join(' / ')
         data['category'] = category
         var item = data
+
+        if (!item['rating']) {
+          item['rating'] = {
+            value: 0
+          }
+        }
+        var value = item['rating']['value']
+        if (typeof value == 'string') {
+          value = parseFloat(value)
+        }
+
+        value = item.rating.value.toFixed(1)
+
+
+        item['rating']['value'] = value
+        item['rating']['lights'] = ratingStarCalulate(value)['lights']
+        item['rating']['halfs'] = ratingStarCalulate(value)['halfs']
+        item['rating']['grays'] = ratingStarCalulate(value)['grays']
         if (success) {
           success(res, item)
         }
@@ -187,8 +212,8 @@ var xtrequest = {
     var category = params['category']
     var success = params['success']
     var count = params['count'] ? params['count'] : 3
-    var start = params['start'] ? params['start'] : 0 
-    
+    var start = params['start'] ? params['start'] : 0
+
     var url = ''
     if (category == 1) {
       url = that.url.movieCommentUrl(id, start, count)

@@ -1,3 +1,4 @@
+<import src="../ratingstar/ratingstar.wxml" />
 <template name="item">
   <view class="item-group">
     <navigator url="../detail/detail?id={{item.id}}&category={{item.category}}&title={{item.title}}">
@@ -5,9 +6,7 @@
     </navigator>
     <view class="item-title">{{item.title}}</view>
     <view class="item-rating-group">
-      <image src="../images/rate_light.png" wx:for="{{item.rating.lights}}"></image>
-      <image src="../images/rate_half.png" wx:for="{{item.rating.halfs}}"></image>
-      <image src="../images/rate_gray.png" wx:for="{{item.rating.grays}}"></image>
+      <template is="ratingstar" data="{{item:item}}"></template>
       {{item.rating.value}}
     </view>
   </view>

@@ -1,11 +1,12 @@
 <import src="../templates/comment/comment" />
+<import src="../templates/ratingstar/ratingstar" />
 
 <view class="container">
   <view class="item-title">{{item.title}}</view>
   <view class="item-detail-group">
     <view class="item-detail-left">
       <view class="rating-comment-group">
-        <text class="rating-group">{{item.rating.value}}</text>
+        <template is="ratingstar" data="{{item:item}}"></template>
         <text class="comment-count">{{item.comment_count}}人评论</text>
       </view>
       <view class="durations-genres-group">

@@ -1,0 +1,5 @@
+<template name="ratingstar">
+      <image class="starimage" src="../images/rate_light.png" wx:for="{{item.rating.lights}}"></image>
+      <image class="starimage" src="../images/rate_half.png" wx:for="{{item.rating.halfs}}"></image>
+      <image class="starimage" src="../images/rate_gray.png" wx:for="{{item.rating.grays}}"></image>
+</template>
