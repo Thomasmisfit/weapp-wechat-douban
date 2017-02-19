@@ -1,3 +1,5 @@
+@import "../ratingstar/ratingstar.wxss";
+
 .comment-group{
     margin-top: 20px;
     display: flex;
@@ -20,8 +22,11 @@
     font-size: 16px;
 }
 
-.comment-info-group .user-name{
+.comment-info-group .user-name-comment{
     margin-top: 5px;
+}
+.user-name-comment .user-name{
+    margin-right: 5px;
 }
 
 .comment-info-group .comment-time{

@@ -157,22 +157,22 @@ var xtrequest = {
         var item = data
 
         if (!item['rating']) {
-          item['rating'] = {
-            value: 0
+            item['rating'] = {
+              value: 0
+            }
           }
-        }
-        var value = item['rating']['value']
-        if (typeof value == 'string') {
-          value = parseFloat(value)
-        }
+          var value = item['rating']['value']
+          if (typeof value == 'string') {
+            value = parseFloat(value)
+          }
 
-        value = item.rating.value.toFixed(1)
+          value = item.rating.value.toFixed(1)
 
 
-        item['rating']['value'] = value
-        item['rating']['lights'] = ratingStarCalulate(value)['lights']
-        item['rating']['halfs'] = ratingStarCalulate(value)['halfs']
-        item['rating']['grays'] = ratingStarCalulate(value)['grays']
+          item['rating']['value'] = value
+          item['rating']['lights'] = ratingStarCalulate(value)['lights']
+          item['rating']['halfs'] = ratingStarCalulate(value)['halfs']
+          item['rating']['grays'] = ratingStarCalulate(value)['grays']
         if (success) {
           success(res, item)
         }
@@ -229,8 +229,34 @@ var xtrequest = {
       success: function (res) {
         // success
         var comments = res.data.interests
+        var items = []
+        for (var i = 0; i < comments.length; i++) {
+          var item = comments[i]
+          // console.log('item:', item)
+          if (!item['rating']) {
+            item['rating'] = {
+              value: 0
+            }
+          }
+          var value = item['rating']['value']
+          if (typeof value == 'string') {
+            value = parseFloat(value)
+          }
+
+          value = item.rating.value.toFixed(1)
+
+
+          item['rating']['value'] = value
+          item['rating']['lights'] = ratingStarCalulate(value)['lights']
+          item['rating']['halfs'] = ratingStarCalulate(value)['halfs']
+          item['rating']['grays'] = ratingStarCalulate(value)['grays']
+          item['category'] = category
+
+          items.push(item)
+        }
+        console.log("comments in list:",comments)
         if (success) {
-          success(res, comments)
+          success(res, items)
         }
       }
     })
