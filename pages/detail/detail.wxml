@@ -1,10 +1,12 @@
+<import src="../templates/comment/comment" />
+
 <view class="container">
   <view class="item-title">{{item.title}}</view>
   <view class="item-detail-group">
     <view class="item-detail-left">
       <view class="rating-comment-group">
         <text class="rating-group">{{item.rating.value}}</text>
-        <text class="comment-group">{{item.comment_count}}人评论</text>
+        <text class="comment-count">{{item.comment_count}}人评论</text>
       </view>
       <view class="durations-genres-group">
         <text class="durations-group">{{item.durations}}</text>
@@ -33,19 +35,7 @@
   <view class="comment-list-group">
     <view class="module-title">短评({{comment.total}})</view>
     <block wx:for="{{comment.comments}}" wx:for-item="comment">
-      <view class="comment-group">
-        <view class="user-avatar-group">
-          <image src="{{comment.user.avatar}}"></image>
-        </view>
-        <view class="comment-info-group">
-          <view class="user-name">
-            <text>{{comment.user.name}}</text>
-            <text>{{comment.rating.value}}</text>
-          </view>
-          <view class="comment-time">{{comment.create_time}}</view>
-          <view class="comment-content">{{comment.comment}}</view>
-        </view>
-      </view>
+      <template is="comment" data="{{comment:comment}}"></template>
     </block>
   </view>
   <navigator class="load-more-comment" url="../comments/comments?rating={{item.rating.value}}&title={{item.title}}&id={{item.id}}&category={{item.category}}&thumbnail={{item.cover.image.small.url}}">查看更多短评</navigator>

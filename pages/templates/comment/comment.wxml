@@ -1,0 +1,15 @@
+<template name="comment">
+  <view class="comment-group">
+    <view class="user-avatar-group">
+      <image src="{{comment.user.avatar}}"></image>
+    </view>
+    <view class="comment-info-group">
+      <view class="user-name">
+        <text>{{comment.user.name}}</text>
+        <text>{{comment.rating.value}}</text>
+      </view>
+      <view class="comment-time">{{comment.create_time}}</view>
+      <view class="comment-content">{{comment.comment}}</view>
+    </view>
+  </view>
+</template>

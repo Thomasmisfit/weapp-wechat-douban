@@ -1,0 +1,34 @@
+.comment-group{
+    margin-top: 20px;
+    display: flex;
+}
+
+.comment-group .user-avatar-group{
+    width: 35px;
+
+}
+
+.user-avatar-group image{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+
+}
+
+.comment-group .comment-info-group{
+    margin-left: 10px;
+    font-size: 16px;
+}
+
+.comment-info-group .user-name{
+    margin-top: 5px;
+}
+
+.comment-info-group .comment-time{
+    color: #B3B3B3;
+    margin-top: 5px;
+}
+
+.comment-info-group .comment-content{
+    margin-top: 5px;
+}

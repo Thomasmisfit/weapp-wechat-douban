@@ -1,4 +1,13 @@
 /* pages/comments/comments.wxss */
+@import "../templates/comment/comment.wxss";
+
+.page{
+    height: 100%;
+}
+
+.comment-scroll-view{
+    height: 100%;
+}
 
 .container{
     padding: 10px 10px;
@@ -9,8 +18,8 @@
 }
 
 .item-info-group .item-thumbnail{
-    width: 25px;
-    height: 17px;
+    width: 17px;
+    height: 25px;
     vertical-align: bottom;
 }
 
@@ -24,4 +33,29 @@
     color: #aaa;
     font-size: 14px;
     margin-left: 8px;
+}
+
+.comment-list-group{
+    margin-top: 45px;
+}
+
+
+.comment-list-group .comment-title{
+    font-size: 20px;
+    color: black;
+}
+
+.page-btn-group{
+    margin-top: 35px;
+    margin-bottom: 15px;
+    display: flex;
+}
+
+.page-btn-group .page-btn{
+    border: solid 1px #898889;
+    background: #f8f8f8;
+    color: #898889;
+    height: 33px;
+    flex:1;
+    line-height: 33px;
 }

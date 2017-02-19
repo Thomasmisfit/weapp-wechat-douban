@@ -1,3 +1,5 @@
+@import "../templates/comment/comment.wxss";
+
 .container{
     padding: 33px 20px;
     background: #fff;
@@ -13,19 +15,20 @@
 }
 
 .item-title{
-    font-size: 30px;
+    font-size: 35px;
 }
 
 .rating-comment-group{
     font-size: 16px;
-    margin-top: 20px;
+    margin-top: 10px;
+    flex: 1;
 }
 
 .rating-comment-group .rating-group{
     color: #353535;
 }
 
-.rating-comment-group .comment-group{
+.rating-comment-group .comment-count{
     color:#afafaf;
     margin-left: 10px;
 }
@@ -33,10 +36,6 @@
 .durations-genres-group {
     font-size: 16px;
     margin-top: 10px;
-}
-
-.durations-genres-group .durations-group{
-
 }
 
 .durations-genres-group .genres-group{
@@ -48,9 +47,6 @@
     font-size: 16px;
 }
 
-.pubdate-countries-group .pubdate-group {
-
-}
 
 .pubdate-countries-group .countries-group {
      margin-left: 10px;
@@ -64,6 +60,7 @@
 .item-detail-right{
     width: 100px;
     margin-top: 10px;
+    float: right;
 }
 .item-detail-right  .image-group{
     width: 100px;
@@ -100,40 +97,6 @@
     margin-top: 20px;
 }
 
-.comment-list-group .comment-group{
-    margin-top: 20px;
-    display: flex;
-}
-
-.comment-group .user-avatar-group{
-    width: 35px;
-
-}
-
-.user-avatar-group image{
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-
-}
-
-.comment-group .comment-info-group{
-    margin-left: 10px;
-    font-size: 16px;
-}
-
-.comment-info-group .user-name{
-    margin-top: 5px;
-}
-
-.comment-info-group .comment-time{
-    color: #B3B3B3;
-    margin-top: 5px;
-}
-
-.comment-info-group .comment-content{
-    margin-top: 5px;
-}
 
 .load-more-comment{
     margin-top: 23px;

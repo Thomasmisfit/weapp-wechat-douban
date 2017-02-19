@@ -186,13 +186,16 @@ var xtrequest = {
     var id = params['id']
     var category = params['category']
     var success = params['success']
+    var count = params['count'] ? params['count'] : 3
+    var start = params['start'] ? params['start'] : 0 
+    
     var url = ''
     if (category == 1) {
-      url = that.url.movieCommentUrl(id)
+      url = that.url.movieCommentUrl(id, start, count)
     } else if (category == 2) {
-      url = that.url.tvCommentUrl(id)
+      url = that.url.tvCommentUrl(id, start, count)
     } else {
-      url = that.url.showCommentUrl(id)
+      url = that.url.showCommentUrl(id, start, count)
     }
     wx.request({
       url: url,
